@@ -49,7 +49,7 @@ $ `bundle install`
 <a href="https://www.postgresql.org/download/">Install PostgreSQL</a> for your operating system or subsystem.
 You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>.
 
-In your local machine rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
+In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
 
 <b>pg gem</b>
 
