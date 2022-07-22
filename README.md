@@ -38,20 +38,21 @@ The latest version from the release branch 'master' is automatically deployed to
 $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
 ## Setup
+First of all you need rvm to setup project. For the operating system Windows the optimal solution is to use <a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a>.
+
 $ `bin/setup`
 or
 $ `bundle install`
 
 <b>PostgreSQL</b>
 
-<a href="https://www.postgresql.org/download/">Install PostgreSQL</a>
+<a href="https://www.postgresql.org/download/">Install PostgreSQL</a> for your operating system or subsystem.
+You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>.
 
-<a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>
-
-Rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
+In your local machine rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
 
 <b>pg gem</b>
-
+Under certain circumstances bundle can do not install pg. To install manually:
 $ `sudo apt-get install libpq-dev`
 then
 $ `gem install pg`
@@ -60,31 +61,30 @@ $ `gem install pg`
 
 For correct operation of the migration, you need to rename the migration file `20220123171144_create_versions.rb` so that it is processed first.
 
+To create the necessary databases and update them:
 $ `rake db:create`
 then
 $ `rake db:migrate`
 
 <b>Redis</b>
-
-<a href="https://redis.io/docs/getting-started/installation/">Install Redis</a>
-
+You need Redis for correct work.
+<a href="https://redis.io/docs/getting-started/">Install Redis</a> for your operating system or subsystem. You can familiarize yourself with
 <a href="https://redis.io/docs//">Redis documentation</a>
 
 <b>npm and Node.js</b>
-
-<a href="https://nodejs.org/en/download/">Install npm and Node.js</a>
-
+Also you need Node.js.
+<a href="https://nodejs.org/en/download/">Install npm and Node.js</a> for your operating system or subsystem. You can familiarize yourself with
 <a href="https://nodejs.org/en/about/">npm and Node.js documentation</a>
 
 <b>yarn</b>
-
+You can read more about yarn there:
 <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>
 
 Installation:
 $ `npm install --global yarn`
 
 <b>Webpacker</b>
-
+To prevent an error when starting the server install webpacker. You can read more about webpacker there:
 <a href="https://guides.rubyonrails.org/webpacker.html">Webpacker documentation</a>
 
 Installation:
