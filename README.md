@@ -53,7 +53,9 @@ In your local machine in cloned project in config folder rename database.yml.sam
 
 <b>pg gem</b>
 
-Under certain circumstances bundle can do not install pg. To install manually:
+Under certain circumstances bundle can do not install pg.
+
+To install manually:
 $ `sudo apt-get install libpq-dev`
 then
 $ `gem install pg`
@@ -63,6 +65,7 @@ $ `gem install pg`
 For correct operation of the migration, you need to rename the migration file `20220123171144_create_versions.rb` so that it is processed first.
 
 To create the necessary databases and update them:
+
 $ `rake db:create`
 then
 $ `rake db:migrate`
@@ -73,6 +76,14 @@ You need Redis for correct work.
 <a href="https://redis.io/docs/getting-started/">Install Redis</a> for your operating system or subsystem. You can familiarize yourself with
 <a href="https://redis.io/docs//">Redis documentation</a>
 
+Installation for Ubuntu:
+`curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+sudo apt-get update
+sudo apt-get install redis`
+
 <b>npm and Node.js</b>
 
 Also you need Node.js.
@@ -82,7 +93,7 @@ Also you need Node.js.
 <b>yarn</b>
 
 You can read more about yarn there:
-<a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>
+<a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>.
 
 Installation:
 $ `npm install --global yarn`
