@@ -74,15 +74,16 @@ $ `rake db:migrate`
 
 You need Redis for correct work.
 <a href="https://redis.io/docs/getting-started/">Install Redis</a> for your operating system or subsystem. You can familiarize yourself with
-<a href="https://redis.io/docs//">Redis documentation</a>
+<a href="https://redis.io/docs//">Redis documentation</a>.
 
 Installation for Ubuntu:
-`curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
 
-echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+$ `curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg`
 
-sudo apt-get update
-sudo apt-get install redis`
+$ `echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list`
+
+$ `sudo apt-get update`
+$ `sudo apt-get install redis`
 
 <b>npm and Node.js</b>
 
