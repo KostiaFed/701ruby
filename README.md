@@ -51,30 +51,42 @@ $ `bundle install`
 Rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
 
 <b>pg gem</b>
+
 $ `sudo apt-get install libpq-dev`
 then
 $ `gem install pg`
 
 <b>Database configure</b>
+
 For correct operation of the migration, you need to rename the migration file `20220123171144_create_versions.rb` so that it is processed first.
+
 $ `rake db:create`
+then
 $ `rake db:migrate`
 
-###Redis
+<b>Redis</b>
+
 <a href="https://redis.io/docs/getting-started/installation/">Install Redis</a>
+
 <a href="https://redis.io/docs//">Redis documentation</a>
 
-###npm and Node.js
+<b>npm and Node.js</b>
+
 <a href="https://nodejs.org/en/download/">Install npm and Node.js</a>
+
 <a href="https://nodejs.org/en/about/">npm and Node.js documentation</a>
 
-###yarn
+<b>yarn</b>
+
 <a href="https://classic.yarnpkg.com/lang/en/docs/">yarn documentation</a>
+
 Installation:
 $ `npm install --global yarn`
 
-###Webpacker
+<b>Webpacker</b>
+
 <a href="https://guides.rubyonrails.org/webpacker.html">Webpacker documentation</a>
+
 Installation:
 $ `yarn add @rails/webpacker`
 $ `bundle update webpacker`
