@@ -42,17 +42,20 @@ $ `bin/setup`
 or
 $ `bundle install`
 
-###PostgreSQL
+<b>PostgreSQL</b>
+
 <a href="https://www.postgresql.org/download/">Install PostgreSQL</a>
+
 <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>
+
 Rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
 
-###pg gem
+<b>pg gem</b>
 $ `sudo apt-get install libpq-dev`
 then
 $ `gem install pg`
 
-###Database configure
+<b>Database configure</b>
 For correct operation of the migration, you need to rename the migration file `20220123171144_create_versions.rb` so that it is processed first.
 $ `rake db:create`
 $ `rake db:migrate`
