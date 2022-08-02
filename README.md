@@ -12,7 +12,7 @@ In order to attract attention to financial and ecological consequences of dispos
 - [Installation](#installation)
   - [Required to install](#Required-to-install)
   - [Clone](#Clone)
-  - [Setup](#Setup)
+  - [Local setup](#Setup)
   - [How to run local](#How-to-run-local)
 - [Usage](#Usage)
   - [How to run Rubocop](#How-to-run-Rubocop)
@@ -37,8 +37,8 @@ The latest version from the release branch 'master' is automatically deployed to
 
 $ `git clone https://github.com/ita-social-projects/ZeroWaste.git`
 
-## Setup
-First of all you need rvm to setup project. For the operating system Windows the optimal solution is to use <a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a>.
+## Local setup
+First of all you need RVM to setup project. For the operating system Windows the optimal solution is to use <a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a>.
 
 $ `bin/setup`
 or
@@ -50,6 +50,13 @@ $ `bundle install`
 You can familiarize yourself with <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a>.
 
 In your local machine in cloned project in config folder rename database.yml.sample to database.yml. Make sure that the user and password match the data in this file. Port may be changed.
+
+For further work, make sure that you have a user 'postgres' with superuser. If is no that one do next:
+$ `sudo -u user psql user`
+$ `CREATE USER postgres SUPERUSER;`
+$ `CREATE DATABASE postgres WITH OWNER postgres;`
+
+If you're having trouble authenticating, you may need to reset your password. You can <a href="https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg">read</a> instruction how to do it.
 
 <b>pg gem</b>
 
@@ -70,6 +77,8 @@ $ `rake db:create`
 then
 $ `rake db:migrate`
 
+$ `rake db:reset` can resolve some errors connected with database.
+
 <b>Redis</b>
 
 You need Redis for correct work.
@@ -80,7 +89,9 @@ Installation for Ubuntu:
 
 $ `curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg`
 
-$ `echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list`
+```shell
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+```
 
 $ `sudo apt-get update`
 $ `sudo apt-get install redis`
@@ -102,20 +113,35 @@ $ `npm install --global yarn`
 <b>Webpacker</b>
 
 To prevent an error when starting the server install webpacker. You can read more about webpacker there:
-<a href="https://guides.rubyonrails.org/webpacker.html">Webpacker documentation</a>
+<a href="https://guides.rubyonrails.org/webpacker.html">Webpacker documentation</a>.
 
 Installation:
 $ `yarn add @rails/webpacker`
 $ `bundle update webpacker`
 
+<b>Sidekiq</b>
+
+Simple, efficient background processing for Ruby. You can read more about sidekiq there:
+<a href="https://github.com/mperham/sidekiq">Sidekiq documentation</a>.
+
+Installation:
+$ `bundle add sidekiq`
+
 ## How to run local
 
 1. Open terminal.
+In some systems, after restarting them, the postgresql server remains disabled, perhaps at the first start you should enter `sudo service postgresql start`.
 2. Run `rails server`/`rails s` to start application
 3. Open http://localhost:3000 to view it in the browser.
 
 Solutions when an errors occurs:
 <a href="https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist">psql: FATAL: role "postgres" does not exist</a>
+
+If you have Webpacker::Manifest::MissingEntryError you can try next steps:
+$ `rm -rf node_modules`
+$ `rails webpacker:install`
+$ `yarn install`
+
 # Usage
 
 # How to run Rubocop
